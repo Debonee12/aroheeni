@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AROHEENI - Empowering Rural Women in India</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        :root {
+            --earth-brown: #5C4B3D;
+            --earth-brown-light: #8B7355;
+            --leaf-green-dark: #3A5F0B;
+            --leaf-green: #6B8E23;
+            --leaf-green-light: #9ABC60;
+            --cream: #F5F5DC;
+            --gold: #D4AF37;
+            --white: #FFFFFF;
+            --black: #333333;
+            --gray: #777777;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            color: var(--black);
+            background-color: var(--cream);
+            line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--earth-brown);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            width: 280px;
+            background-color: var(--earth-brown);
+            color: var(--cream);
+            padding: 2rem 1.5rem;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: bold;
+            color: var(--earth-brown);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cream);
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin-bottom: 3rem;
+        }
+
+        .nav-item {
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            background-color: var(--earth-brown-light);
+            color: var(--gold);
+        }
+
+        .nav-icon {
+            margin-right: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .donate-btn {
+            display: block;
+            background-color: var(--gold);
+            color: var(--earth-brown);
+            text-align: center;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .donate-btn:hover {
+            background-color: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--earth-brown-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--gold);
+            color: var(--earth-brown);
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            transition: margin 0.3s ease;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 90;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--earth-brown);
+            cursor: pointer;
+        }
+
+        .language-switcher {
+            display: flex;
+            align-items: center;
+        }
+
+        .language-switcher select {
+            padding: 0.5rem;
+            border-radius: 4px;
+            border: 1px solid var(--gray);
+            font-family: inherit;
+            background-color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(92, 75, 61, 0.7), rgba(92, 75, 61, 0.7)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 5rem;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--gold);
+            color: var(--earth-brown);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--cream);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--earth-brown);
+            transform: translateY(-2px);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 5rem;
+            background-color: var(--white);
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--leaf-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--earth-brown);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem;
+            background-color: var(--cream);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--gold);
+        }
+
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Programs Section */
+        .programs {
+            padding: 5rem;
+            background-color: var(--white);
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .program-card {
+            background-color: var(--cream);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .program-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .program-card:hover .program-image img {
+            transform: scale(1.05);
+        }
+
+        .program-content {
+            padding: 1.5rem;
+        }
+
+        .program-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--leaf-green-dark);
+        }
+
+        .program-desc {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+
+        .program-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .program-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .program-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Impact Stories */
+        .impact {
+            padding: 5rem;
+            background-color: var(--cream);
+        }
+
+        .impact-stories {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding-bottom: 2rem;
+            scroll-snap-type: x mandatory;
+        }
+
+        .impact-stories::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .impact-stories::-webkit-scrollbar-track {
+            background: var(--cream);
+        }
+
+        .impact-stories::-webkit-scrollbar-thumb {
+            background: var(--earth-brown-light);
+            border-radius: 4px;
+        }
+
+        .story-card {
+            min-width: 350px;
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            scroll-snap-align: start;
+        }
+
+        .story-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .story-content {
+            padding: 1.5rem;
+        }
+
+        .story-quote {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .story-quote::before {
+            content: '"';
+            font-size: 3rem;
+            position: absolute;
+            top: -20px;
+            left: -15px;
+            color: var(--gold);
+            opacity: 0.3;
+        }
+
+        .story-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Donate Section */
+        .donate {
+            padding: 5rem;
+            background-color: var(--white);
+        }
+
+        .donate-container {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .donate-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .donate-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .donate-form {
+            flex: 1;
+        }
+
+        .donate-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .donate-option {
+            padding: 1.5rem;
+            border: 2px solid var(--cream);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .donate-option:hover, .donate-option.selected {
+            border-color: var(--gold);
+            background-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .donate-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--leaf-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .donate-purpose {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .custom-amount {
+            margin-bottom: 2rem;
+        }
+
+        .custom-amount label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .custom-amount input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--cream);
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        .payment-methods {
+            margin-bottom: 2rem;
+        }
+
+        .payment-methods h3 {
+            margin-bottom: 1rem;
+        }
+
+        .payment-options {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .payment-option {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--cream);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-option:hover, .payment-option.selected {
+            border-color: var(--gold);
+        }
+
+        .recurring-toggle {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--cream);
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--earth-brown);
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--gold);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(30px);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--gold);
+            color: var(--earth-brown);
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--earth-brown);
+            color: var(--gold);
+        }
+
+        /* Join Us Section */
+        .join {
+            padding: 5rem;
+            background-color: var(--cream);
+        }
+
+        .join-container {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .join-info {
+            flex: 1;
+        }
+
+        .join-info h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .join-info p {
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits-list {
+            margin-bottom: 2rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-icon {
+            color: var(--gold);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .join-form {
+            flex: 1;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--cream);
+            border-radius: 8px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 5rem;
+            background-color: var(--white);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background-color: var(--cream);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .blog-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .blog-date {
+            margin-right: 1rem;
+        }
+
+        .blog-category {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--earth-brown);
+        }
+
+        .blog-excerpt {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .read-more i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem;
+            background-color: var(--cream);
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            margin-bottom: 2rem;
+        }
+
+        .contact-details {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            color: var(--gold);
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .contact-map {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 400px;
+            border: none;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--earth-brown);
+            color: var(--cream);
+            padding: 4rem 5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo .logo {
+            margin-right: 1rem;
+        }
+
+        .footer-logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-about p {
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-title {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-link {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-link a {
+            transition: color 0.3s ease;
+        }
+
+        .footer-link a:hover {
+            color: var(--gold);
+        }
+
+        .newsletter-form {
+            margin-top: 1.5rem;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            font-family: inherit;
+        }
+
+        .newsletter-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--gold);
+            color: var(--earth-brown);
+            border: none;
+            border-radius: 6px;
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-btn:hover {
+            background-color: var(--cream);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--earth-brown-light);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .hero {
+                padding: 0 3rem;
+            }
+            
+            .about-content,
+            .donate-container,
+            .join-container,
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .about-image,
+            .donate-image,
+            .contact-map {
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .sidebar {
+                transform: translateX(-100%);
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100%;
+                z-index: 1000;
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 0 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                padding: 6rem 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .stats,
+            .about,
+            .programs,
+            .impact,
+            .donate,
+            .join,
+            .blog,
+            .contact,
+            .footer {
+                padding: 3rem 2rem;
+            }
+            
+            .donate-options {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 5rem 1.5rem;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-item {
+                margin-bottom: 2rem;
+            }
+            
+            .footer {
+                padding: 3rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">A</div>
+            <div class="logo-text">AROHEENI</div>
+        </div>
+        
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="#home" class="nav-link active">
+                    <i class="fas fa-home nav-icon"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#about" class="nav-link">
+                    <i class="fas fa-info-circle nav-icon"></i>
+                    <span>About Us</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#mission" class="nav-link">
+                    <i class="fas fa-bullseye nav-icon"></i>
+                    <span>Our Mission</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#programs" class="nav-link">
+                    <i class="fas fa-hands-helping nav-icon"></i>
+                    <span>Programs</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#impact" class="nav-link">
+                    <i class="fas fa-chart-line nav-icon"></i>
+                    <span>Impact Stories</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#donate" class="nav-link">
+                    <i class="fas fa-donate nav-icon"></i>
+                    <span>Donate</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#join" class="nav-link">
+                    <i class="fas fa-users nav-icon"></i>
+                    <span>Join Us</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#blog" class="nav-link">
+                    <i class="fas fa-newspaper nav-icon"></i>
+                    <span>Blog/News</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="#contact" class="nav-link">
+                    <i class="fas fa-envelope nav-icon"></i>
+                    <span>Contact</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="#donate" class="donate-btn">
+            <i class="fas fa-heart"></i> Donate Now
+        </a>
+        
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+        </div>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="language-switcher">
+                <select>
+                    <option value="en">English</option>
+                    <option value="hi">हिन्दी</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <h1>Empowering Rural Women for a Sustainable Future</h1>
+            <p>AROHEENI is dedicated to transforming lives through education, health initiatives, skill development, and self-help groups in rural India.</p>
+            <div class="hero-btns">
+                <a href="#donate" class="btn btn-primary">Donate Now</a>
+                <a href="#about" class="btn btn-outline">Learn More</a>
+            </div>
+        </section>
+        
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Women Educated</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5,000+</div>
+                    <div class="stat-label">Health Checkups</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Self-Help Groups</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Villages Reached</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Section -->
+        <section id="about" class="about">
+            <h2 class="section-title">About AROHEENI</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Founded in 2010, AROHEENI is a non-profit organization committed to empowering rural women across India. We believe that when women are given the right tools and opportunities, they can transform not only their own lives but also their families and communities.</p>
+                    <p>Our work focuses on four key areas: education, health, skill development, and self-help groups. Through these initiatives, we aim to break the cycle of poverty and create sustainable change in rural India.</p>
+                    <p>With a team of dedicated professionals and volunteers, we've reached over 50 villages across 5 states, impacting the lives of thousands of women and their families.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="AROHEENI team with rural women">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Mission Section -->
+        <section id="mission" class="programs">
+            <h2 class="section-title">Our Mission</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Women working together">
+                </div>
+                <div class="about-text">
+                    <p>Our mission is to create a society where every rural woman has access to education, healthcare, and economic opportunities, enabling her to live with dignity and self-reliance.</p>
+                    <p>We envision a future where rural women are not just beneficiaries but leaders of change in their communities. Through our holistic approach, we address multiple dimensions of empowerment:</p>
+                    <ul style="list-style-type: none; margin-top: 1.5rem;">
+                        <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 0.5rem;"></i> Education for girls and adult literacy programs</li>
+                        <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 0.5rem;"></i> Healthcare access and awareness</li>
+                        <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 0.5rem;"></i> Vocational training and skill development</li>
+                        <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 0.5rem;"></i> Financial literacy and self-help groups</li>
+                        <li style="margin-bottom: 1rem;"><i class="fas fa-check-circle" style="color: var(--gold); margin-right: 0.5rem;"></i> Leadership and entrepreneurship training</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Programs Section -->
+        <section id="programs" class="programs">
+            <h2 class="section-title">Our Programs</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Education program">
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Education for All</h3>
+                        <p class="program-desc">Providing access to quality education for girls and adult literacy programs for women in rural communities.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Health program">
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Health & Wellness</h3>
+                        <p class="program-desc">Mobile health clinics, nutrition programs, and awareness campaigns for rural women and children.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Skill development">
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Skill Development</h3>
+                        <p class="program-desc">Vocational training in tailoring, handicrafts, organic farming, and digital literacy.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Self-help groups">
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Self-Help Groups</h3>
+                        <p class="program-desc">Forming and supporting women's collectives for savings, loans, and entrepreneurship.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Digital literacy">
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Digital Literacy</h3>
+                        <p class="program-desc">Training rural women in basic computer skills, smartphone usage, and online banking.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="program-card">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Leadership program">
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Leadership Development</h3>
+                        <p class="program-desc">Empowering women to take leadership roles in their communities and local governance.</p>
+                        <a href="#" class="program-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Impact Stories -->
+        <section id="impact" class="impact">
+            <h2 class="section-title">Impact Stories</h2>
+            <div class="impact-stories">
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Story 1">
+                    </div>
+                    <div class="story-content">
+                        <p class="story-quote">AROHEENI's tailoring program helped me start my own business. Now I earn enough to send my children to school and support my family.</p>
+                        <div class="story-author">
+                            <div class="author-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sunita Devi">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sunita Devi</h4>
+                                <p>Tailoring Entrepreneur, Bihar</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Story 2">
+                    </div>
+                    <div class="story-content">
+                        <p class="story-quote">After joining AROHEENI's self-help group, I learned about savings and took a loan to buy a sewing machine. My income has tripled in one year.</p>
+                        <div class="story-author">
+                            <div class="author-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Laxmi Bai">
+                            </div>
+                            <div class="author-info">
+                                <h4>Laxmi Bai</h4>
+                                <p>SHG Member, Rajasthan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Story 3">
+                    </div>
+                    <div class="story-content">
+                        <p class="story-quote">The health camp organized by AROHEENI detected my diabetes early. Their follow-up care has helped me manage my condition effectively.</p>
+                        <div class="story-author">
+                            <div class="author-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Kamla Patel">
+                            </div>
+                            <div class="author-info">
+                                <h4>Kamla Patel</h4>
+                                <p>Health Camp Beneficiary, Madhya Pradesh</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Story 4">
+                    </div>
+                    <div class="story-content">
+                        <p class="story-quote">AROHEENI's digital literacy program helped me learn smartphone skills. Now I can video call my son in the city and do online banking.</p>
+                        <div class="story-author">
+                            <div class="author-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/25.jpg" alt="Geeta Sharma">
+                            </div>
+                            <div class="author-info">
+                                <h4>Geeta Sharma</h4>
+                                <p>Digital Literacy Participant, Uttar Pradesh</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Donate Section -->
+        <section id="donate" class="donate">
+            <h2 class="section-title">Support Our Work</h2>
+            <div class="donate-container">
+                <div class="donate-image">
+                    <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Donate to AROHEENI">
+                </div>
+                <div class="donate-form">
+                    <h3>Make a Donation</h3>
+                    <p>Your contribution will help us empower more rural women through education, healthcare, and economic opportunities.</p>
+                    
+                    <div class="donate-options">
+                        <div class="donate-option">
+                            <div class="donate-amount">₹500</div>
+                            <div class="donate-purpose">Educate a child</div>
+                        </div>
+                        <div class="donate-option selected">
+                            <div class="donate-amount">₹1000</div>
+                            <div class="donate-purpose">Skill training</div>
+                        </div>
+                        <div class="donate-option">
+                            <div class="donate-amount">₹2500</div>
+                            <div class="donate-purpose">Health camp</div>
+                        </div>
+                        <div class="donate-option">
+                            <div class="donate-amount">₹5000</div>
+                            <div class="donate-purpose">SHG support</div>
+                        </div>
+                    </div>
+                    
+                    <div class="custom-amount">
+                        <label for="amount">Other Amount (₹)</label>
+                        <input type="number" id="amount" placeholder="Enter custom amount">
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <h3>Payment Method</h3>
+                        <div class="payment-options">
+                            <div class="payment-option selected">Credit Card</div>
+                            <div class="payment-option">Debit Card</div>
+                            <div class="payment-option">UPI</div>
+                            <div class="payment-option">Net Banking</div>
+                        </div>
+                    </div>
+                    
+                    <div class="recurring-toggle">
+                        <label>Make this a monthly donation</label>
+                        <div class="toggle-switch">
+                            <input type="checkbox" id="recurring">
+                            <div class="slider"></div>
+                        </div>
+                    </div>
+                    
+                    <button class="submit-btn">Donate Now</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Join Us Section -->
+        <section id="join" class="join">
+            <h2 class="section-title">Join Our Movement</h2>
+            <div class="join-container">
+                <div class="join-info">
+                    <h3>Volunteer With Us</h3>
+                    <p>Join our team of passionate volunteers and contribute your skills to empower rural women. Whether you can spare a few hours a week or want to take on a larger role, we have opportunities for everyone.</p>
+                    
+                    <div class="benefits-list">
+                        <h4>Why Volunteer With AROHEENI?</h4>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                            <div>Make a tangible difference in women's lives</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                            <div>Join a community of like-minded changemakers</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div>Gain valuable experience and skills</div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-globe-asia"></i></div>
+                            <div>Opportunity for field visits to rural communities</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 2rem;">Corporate Partnerships</h3>
+                    <p>Businesses can partner with us through CSR initiatives, employee volunteering programs, or cause-related marketing campaigns. Together, we can create sustainable impact at scale.</p>
+                </div>
+                
+                <div class="join-form">
+                    <h3>Get Involved</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">I'm interested in</label>
+                            <select id="interest" required>
+                                <option value="">Select an option</option>
+                                <option value="volunteer">Volunteering</option>
+                                <option value="internship">Internship</option>
+                                <option value="corporate">Corporate Partnership</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="skills">Skills/Expertise</label>
+                            <textarea id="skills" placeholder="Tell us about your skills and how you'd like to contribute"></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Blog Section -->
+        <section id="blog" class="blog">
+            <h2 class="section-title">Latest News & Stories</h2>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog 1">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">June 15, 2023</span>
+                            <span class="blog-category">Success Story</span>
+                        </div>
+                        <h3 class="blog-title">How SHGs Are Transforming Rural Economies</h3>
+                        <p class="blog-excerpt">Discover how our self-help group initiative has helped women in Rajasthan become financially independent...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog 2">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">May 28, 2023</span>
+                            <span class="blog-category">Event</span>
+                        </div>
+                        <h3 class="blog-title">Annual Health Camp Reaches 500 Women</h3>
+                        <p class="blog-excerpt">Our mobile health clinic provided free checkups and medicines to women in remote villages of Bihar...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Blog 3">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span class="blog-date">April 10, 2023</span>
+                            <span class="blog-category">Update</span>
+                        </div>
+                        <h3 class="blog-title">Digital Literacy Program Expansion</h3>
+                        <p class="blog-excerpt">Thanks to donor support, we're bringing our digital skills training to 10 new villages this year...</p>
+                        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p>We'd love to hear from you! Whether you have questions about our programs, want to volunteer, or explore partnership opportunities, reach out to us.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div>
+                                <h4>Head Office</h4>
+                                <p>123 Empowerment Lane, New Delhi 110001, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 98765 43210</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>contact@aroheeni.org</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Field Offices</h3>
+                    <p>We have regional offices in Bihar, Rajasthan, Madhya Pradesh, and Uttar Pradesh. Contact us for specific location details.</p>
+                </div>
+                
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.837284119345!2d77.2095623150833!3d28.63264458241776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd309eebec89%3A0x25106b2635c675fc!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1686745672900!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <div class="logo">A</div>
+                        <div class="footer-logo-text">AROHEENI</div>
+                    </div>
+                    <p>Empowering rural women through education, health, skill development, and self-help groups since 2010.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#home">Home</a></li>
+                        <li class="footer-link"><a href="#about">About Us</a></li>
+                        <li class="footer-link"><a href="#programs">Programs</a></li>
+                        <li class="footer-link"><a href="#impact">Impact</a></li>
+                        <li class="footer-link"><a href="#donate">Donate</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-title">Get Involved</h3>
+                    <ul class="footer-links">
+                        <li class="footer-link"><a href="#join">Volunteer</a></li>
+                        <li class="footer-link"><a href="#join">Internships</a></li>
+                        <li class="footer-link"><a href="#join">Careers</a></li>
+                        <li class="footer-link"><a href="#join">Partnerships</a></li>
+                        <li class="footer-link"><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h3 class="footer-title">Newsletter</h3>
+                    <p>Subscribe to our newsletter to receive updates on our programs and impact.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 AROHEENI. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </footer>
+    </main>
+    
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const sidebar = document.querySelector('.sidebar');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 992 && !sidebar.contains(e.target) && e.target !== mobileMenuBtn) {
+                sidebar.classList.remove('active');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (window.innerWidth <= 992) {
+                        sidebar.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Donation option selection
+        const donateOptions = document.querySelectorAll('.donate-option');
+        donateOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                donateOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                
+                // Update custom amount field with selected value
+                const amount = option.querySelector('.donate-amount').textContent.replace('₹', '').replace(',', '');
+                document.getElementById('amount').value = amount;
+            });
+        });
+        
+        // Payment method selection
+        const paymentOptions = document.querySelectorAll('.payment-option');
+        paymentOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                paymentOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+            });
+        });
+        
+        // Form submission handling
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // In a real implementation, you would handle form submission here
+                alert('Thank you for your submission! We will get back to you soon.');
+                form.reset();
+            });
+        });
+        
+        // Active nav link highlighting based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', () => {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
